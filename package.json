@@ -1,0 +1,19 @@
+{
+  "name": "solcrucible",
+  "version": "1.0.0",
+  "description": "Solidity Playground",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "solhint 'contracts/**/*.sol' 'scripts/**/*.sol' 'test/**/*.sol'"
+  },
+  "author": "John Cairns",
+  "license": "MIT",
+  "devDependencies": {
+    "solhint": "5.0.1"
+  }
+}
