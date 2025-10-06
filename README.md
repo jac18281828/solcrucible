@@ -1,3 +1,5 @@
+![Crucible](cointoss.jpg)
+
 ## Foundry
 
 [![Test](https://github.com/jac18281828/solcrucible/actions/workflows/ci-image.yml/badge.svg)](https://github.com/jac18281828/solcrucible/actions/workflows/ci-image.yml)

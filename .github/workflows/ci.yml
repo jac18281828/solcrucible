@@ -1,0 +1,47 @@
+name: Forge CI
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: ["**"]
+jobs:
+  build-and-test:
+    name: Build & Test (Foundry)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install Foundry toolchain
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+      - name: Cache forge artifacts (lib/cache/out)
+        uses: actions/cache@v4
+        with:
+          path: |
+            lib
+            cache
+            out
+          key: ${{ runner.os }}-forge-${{ hashFiles('foundry.toml', 'remappings.txt', 'remappings') }}
+          restore-keys: |
+            ${{ runner.os }}-forge-
+      - name: Install deps if needed
+        run: |
+          if [ ! -d lib ] || [ -z "$(ls -A lib 2>/dev/null)" ]; then
+            forge install --no-commit
+          fi
+      - name: Show versions
+        run: |
+          forge --version
+          cast --version || true
+          anvil --version || true
+      - name: Lint (format check)
+        run: forge fmt --check
+      - name: Build
+        run: forge build --sizes
+      - name: Run tests (verbose + gas report)
+        run: forge test -vvv --fail-fast --gas-report

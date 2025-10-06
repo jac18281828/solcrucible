@@ -10,8 +10,3 @@ ENV USER=foundry
 USER foundry
 ENV PATH=${PATH}:~/.cargo/bin
 RUN npm ci --frozen-lockfile
-RUN forge fmt --check
-RUN npm run lint
-RUN forge test -v
-RUN python3 -m slither . --exclude-dependencies --exclude-info --exclude-low --exclude-medium
-
