@@ -9,5 +9,6 @@ git config --global --add safe.directory "$PWD"
 forge install
 bun install --frozen-lockfile
 forge build
+claude --version
 
 echo "ready: run 'F1 > Tasks: Run Test Task' or 'forge test'"
