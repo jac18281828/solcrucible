@@ -17,7 +17,7 @@
         {
             "label": "install",
             "type": "shell",
-            "command": "npm ci --frozen-lockfile",
+            "command": "bun install --frozen-lockfile",
             "options": {
                 "cwd": "${workspaceFolder}"
             },
@@ -41,7 +41,7 @@
         {
             "label": "lint",
             "type": "shell",
-            "command": "npm run lint",
+            "command": "bun run lint",
             "options": {
                 "cwd": "${workspaceFolder}"
             },

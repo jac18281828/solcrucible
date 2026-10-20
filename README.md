@@ -19,6 +19,19 @@ https://book.getfoundry.sh/
 
 ## Usage
 
+### Install
+
+```shell
+$ forge install
+$ bun install --frozen-lockfile
+```
+
+### Lint
+
+```shell
+$ bun run lint
+```
+
 ### Build
 
 ```shell
